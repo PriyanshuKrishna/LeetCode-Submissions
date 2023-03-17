@@ -9,6 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
+
 class Solution {
 public:
     int findMaxDistance(map<TreeNode*,TreeNode*>& mp,TreeNode* target){
@@ -32,7 +33,7 @@ public:
                     vis[node->right]=1;
                     q.push(node->right);
                 }
-                if(mp.find(node)!=mp.end() && !vis[mp[node]]){
+                if(mp[node] && !vis[mp[node]]){
                     fl=1;
                     vis[mp[node]]=1;
                     q.push(mp[node]);
