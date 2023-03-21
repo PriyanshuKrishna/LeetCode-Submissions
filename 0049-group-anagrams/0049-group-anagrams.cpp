@@ -11,7 +11,7 @@ public:
         }
         for(auto it:mp){
             vector<string> temp;
-            for(auto k:it.second)
+            for(auto& k:it.second)
                 temp.push_back(k);
             s.push_back(temp);
         }
