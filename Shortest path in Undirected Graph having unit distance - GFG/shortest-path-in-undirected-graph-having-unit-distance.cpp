@@ -15,7 +15,7 @@ class Solution {
             adj[edges[i][0]].push_back(edges[i][1]);
             adj[edges[i][1]].push_back(edges[i][0]);
         }
-        vector<int> dist(n,1e9);
+        vector<int> dist(n,INT_MAX);
         queue<int> q;
         q.push(src);
         dist[src]=0;
@@ -30,7 +30,7 @@ class Solution {
         }
         vector<int> ans(n,-1);
         for(int i=0;i<n;i++)
-            if(dist[i]!=1e9)
+            if(dist[i]!=INT_MAX)
                 ans[i]=dist[i];
         return ans;
     }
