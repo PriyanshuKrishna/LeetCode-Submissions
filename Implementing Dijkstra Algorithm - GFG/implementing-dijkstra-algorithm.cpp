@@ -15,15 +15,14 @@ class Solution
         vector<int> dist(V,INT_MAX);
         dist[S]=0;
         pq.push({0,S});
-        
         while(!pq.empty()){
             int dis=pq.top().first;
             int node=pq.top().second;
             pq.pop();
             
             for(auto it:adj[node]){
-                int edgewt=it[1];
                 int adjnode=it[0];
+                int edgewt=it[1];
                 
                 if(dis+edgewt<dist[adjnode]){
                     dist[adjnode]=dis+edgewt;
