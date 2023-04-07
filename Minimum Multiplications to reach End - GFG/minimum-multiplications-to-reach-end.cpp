@@ -14,11 +14,11 @@ class Solution {
         // code here
         int mod=100000;
         vector<int> dist(mod,INT_MAX);
-        queue<pair<int,int>> q;
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<>> q;
         dist[start]=0;
         q.push({0,start});
         while(!q.empty()){
-            auto it=q.front();q.pop();
+            auto it=q.top();q.pop();
             int step=it.first;
             int node=it.second;
             
