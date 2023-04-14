@@ -1,7 +1,7 @@
 class Solution {
 private:
     void dfs(vector<vector<int>>& image,vector<vector<int>>& ans,int row,int col,int delrow[],
-             int delcol[],int incolor,int color){
+                                                        int delcol[],int incolor,int color){
         ans[row][col]=color;
         int n=image.size();
         int m=image[0].size();
