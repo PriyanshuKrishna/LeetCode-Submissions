@@ -24,3 +24,4 @@ public:
         return count;
     }
 };
+// without visited array
