@@ -4,12 +4,10 @@ private:
         if(r<0 || r>=grid.size() || c<0 || c>=grid[0].size() || grid[r][c]==1)  
             return;
         grid[r][c]=1;
-        vector<int> dir={-1,0,+1,0,-1};
-        for(int i=0;i<4;i++){
-            int nr=r+dir[i];
-            int nc=c+dir[i+1];
-            dfs(grid,nr,nc);
-        }
+        dfs(grid,r+1,c);
+        dfs(grid,r-1,c);
+        dfs(grid,r,c+1);
+        dfs(grid,r,c-1);
     }
 public:
     int closedIsland(vector<vector<int>>& grid) {
