@@ -6,8 +6,7 @@ private:
         for(int i=0;i<4;i++){
             int nr=r+dir[i];
             int nc=c+dir[i+1];
-            if(nr>=0 && nr<grid.size() && nc>=0 && nc<grid[0].size()
-                        && grid[nr][nc]==1)
+            if(nr>=0 && nr<grid.size() && nc>=0 && nc<grid[0].size() && grid[nr][nc]==1)
                 dfs(grid,nr,nc);
         }
     }
