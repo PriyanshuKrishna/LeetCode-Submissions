@@ -17,9 +17,9 @@ public:
             }
         }
         while(!q.empty()){
-            auto r=q.front().first;
-            auto c=q.front().second;
-            q.pop();
+            auto it=q.front();q.pop();
+            int r=it.first;
+            int c=it.second;
             for(int i=0;i<4;i++){
                 int nr=r+dir[i];
                 int nc=c+dir[i+1];
