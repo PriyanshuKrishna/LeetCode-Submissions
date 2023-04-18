@@ -18,8 +18,7 @@ public:
             root=root->next;
         }
         int n=tmp.size();
-        if(k==0) swap(tmp[k],tmp[n-1]);
-        else    swap(tmp[k-1],tmp[n-k]);
+        swap(tmp[k-1],tmp[n-k]);
         root=head;
         for(int i=0;i<n;i++){
             root->val=tmp[i];
