@@ -2,7 +2,7 @@ class Solution {
 public:
     queue<pair<int, int>> q; 
     void dfs(vector<vector<int>>& grid, int i, int j) { 
-        if (i<0 or i>=grid.size() or j<0 or j>=grid.size() or grid[i][j] == 2 or grid[i][j] == 0)
+        if (i<0 || i>=grid.size() || j<0 || j>=grid.size() || grid[i][j] == 2 || grid[i][j] == 0)
             return;
 
         grid[i][j] = 2; 
@@ -15,34 +15,39 @@ public:
     }
     
     int bfs(vector<vector<int>>& grid){ 
-        int d = 0; 
-        int mindist = INT_MAX; 
-        vector<vector<int>> dir = {{1,0}, {0,1}, {-1,0}, {0,-1}};
+        int dist=0; 
+        vector<int> dir={-1,0,+1,0,-1};
+        bool flag=false;
         while (!q.empty()){
             int n = q.size();
             while(n-- > 0){
                 auto a = q.front();q.pop();
                 for (int h=0; h<4; h++) {
-                    int x = dir[h][0] + a.first;
-                    int y = dir[h][1] + a.second;
-                    if (x>=0 and x<grid.size() and y>=0 and y<grid.size() and grid[x][y] == 1) 
-                        mindist = min(mindist, d);
+                    int x = dir[h] + a.first;
+                    int y = dir[h+1] + a.second;
+                    if (x>=0 && x<grid.size() && y>=0 && y<grid.size() && grid[x][y] == 1){
+                        flag=true;
+                        break;
+                    }
                     
-                    else if(x>=0 and x<grid.size() and y>=0 and y<grid.size() and grid[x][y] == 0){ 
+                    else if(x>=0 && x<grid.size() && y>=0 && y<grid.size() && grid[x][y] == 0){ 
                         q.push({x, y});
                         grid[x][y] = 2;
                     }
                 }
+                if(flag)  break;
             }
-            d++;
+            if(flag)  break;
+            dist++;
         }
-        return mindist;
+        return dist;
     }
+    
     int shortestBridge(vector<vector<int>>& grid) {
         bool flag = false;
         for (int i=0; i<grid.size(); i++){
             for (int j=0; j<grid[0].size(); j++){
-                if (grid[i][j] == 1 and !flag){ 
+                if (grid[i][j] == 1 && !flag){ 
                     dfs(grid, i, j);
                     q.push({i,j});
                     flag = true;
