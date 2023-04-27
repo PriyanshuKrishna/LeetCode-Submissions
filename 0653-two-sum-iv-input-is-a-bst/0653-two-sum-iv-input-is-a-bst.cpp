@@ -12,17 +12,14 @@
 class Solution {
 public:
     bool findTarget(TreeNode* root, int k) {
-        return dfs(root,root,k);
+        unordered_set<int> st;
+        return dfs(root,st,k);
     }
-    bool dfs(TreeNode* root,TreeNode* curr,int k){
-        if(curr==NULL) return false;
-        return search(root,curr,k-curr->val) || dfs(root,curr->left,k) || dfs(root,curr->right,k);
-    }
-    bool search(TreeNode* root,TreeNode* curr,int value){
-        if(root==NULL) return false;
-        return (root->val==value) && (root!=curr) 
-                || (root->val<value) && search(root->right,curr,value) 
-                || (root->val>value) && search(root->left,curr,value);
+    bool dfs(TreeNode* root,unordered_set<int>& st,int k){
+        if(root==NULL)  return false;
+        if(st.count(k-root->val))  return true;
+        st.insert(root->val);
+        return dfs(root->left,st,k) || dfs(root->right,st,k);
     }
 };
 
