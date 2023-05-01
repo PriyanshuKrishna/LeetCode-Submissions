@@ -1,26 +1,3 @@
-/*
-class Solution {
-public:
-    vector<string> topKFrequent(vector<string>& words, int k) {
-        priority_queue<pair<int,string>> mx;
-        map<string,int> mp;
-        vector<string> res;
-        
-        for(auto i:words)
-            mp[i]++;
-        for(auto it:mp)
-            mx.push({it.second,it.first});
-        
-        while(!mx.empty() && k>0){
-            res.push_back(mx.top().second);
-            mx.pop();
-            k--;
-        }
-        return res;
-        // we have to use compartor to solve this problem
-    }
-};
-*/
 class Solution {
 public:
     vector<string> topKFrequent(vector<string>& words, int k) {
