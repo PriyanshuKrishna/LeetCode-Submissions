@@ -6,22 +6,22 @@ using namespace std;
 class Solution {
   public:
     int solve(vector<vector<int>>& points,int day,int last,vector<vector<int>>& dp){
-        
         if(day==0){
             int maxi=0;
-            for(int i=0;i<3;i++){
-                if(i!=last)
-                    maxi=max(maxi,points[0][i]);
+            for(int task=0;task<3;task++){
+                if(task!=last)
+                    maxi=max(maxi,points[0][task]);
             }
             return maxi;
         }
         if(dp[day][last]!=-1)
             return dp[day][last];
+        
         int maxi=0;
-        for(int i=0;i<3;i++){
-            if(i!=last){
-                int point=points[day][i]+solve(points,day-1,i,dp);
-                maxi=max(maxi,point);
+        for(int task=0;task<3;task++){
+            if(task!=last){
+                int point=points[day][task]+solve(points,day-1,task,dp);
+                maxi=max(point,maxi);
             }
         }
         return dp[day][last]=maxi;
