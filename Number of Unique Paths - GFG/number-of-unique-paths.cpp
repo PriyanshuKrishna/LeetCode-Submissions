@@ -13,17 +13,14 @@ class Solution
     int NumberOfPath(int a, int b)
     {
         //code here
-        vector<vector<int>> dp(a,vector<int>(b,-1));
+        vector<vector<int>> dp(a,vector<int>(b,1));
         
-        for(int i=0;i<a;i++){
-            for(int j=0;j<b;j++){
-                if(i==0 || j==0) dp[i][j]=1;
-                else{
-                    int down=0,right=0;
-                    if(i>0) down=dp[i-1][j];
-                    if(j>0) right=dp[i][j-1];
-                    dp[i][j]=down+right;
-                }
+        for(int i=1;i<a;i++){
+            for(int j=1;j<b;j++){
+                int down=0,right=0;
+                if(i>0) down=dp[i-1][j];
+                if(j>0) right=dp[i][j-1];
+                dp[i][j]=down+right;
             }
         }
         return dp[a-1][b-1];
