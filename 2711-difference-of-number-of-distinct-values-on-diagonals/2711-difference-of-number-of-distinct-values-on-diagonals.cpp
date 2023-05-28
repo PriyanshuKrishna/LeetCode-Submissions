@@ -7,18 +7,18 @@ public:
         for(int i=0;i<m;i++){
             for(int j=0;j<n;j++){
                 int x=i+1,y=j+1,p=i-1,q=j-1;
-                unordered_set<int> bright,tleft;
+                set<int> lower,upper;
                 while(x<m && y<n) {
-                    bright.insert(grid[x][y]);
+                    lower.insert(grid[x][y]);
                     x++;y++;
                 }
                 while(p>=0 && q>=0) {
-                    tleft.insert(grid[p][q]);
+                    upper.insert(grid[p][q]);
                     p--;q--;
                 }
-                int bottom=bright.size();
-                int top=tleft.size();
-                ans[i][j]=abs(bottom-top);
+                int l=lower.size();
+                int t=upper.size();
+                ans[i][j]=abs(l-t);
              }
         }
         return ans;
