@@ -19,6 +19,7 @@ public:
             res.push_back({pq.top().second.first,pq.top().second.second});
             pq.pop();
         }
+        // reverse(res.begin(),res.end());
         return res;
     }
 };
