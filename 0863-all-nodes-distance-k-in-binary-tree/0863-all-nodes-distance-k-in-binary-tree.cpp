@@ -45,7 +45,7 @@ public:
                     q.push(node->right);
                     vis[node->right]=true;
                 }
-                if(parent.find(node)!=parent.end() && !vis[parent[node]]){
+                if(parent[node] && !vis[parent[node]]){
                     q.push(parent[node]);
                     vis[parent[node]]=true;
                 }
