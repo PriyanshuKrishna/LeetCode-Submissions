@@ -8,10 +8,10 @@ public:
             return 0;
         if(dp[goal][n]!=-1)
             return dp[goal][n];
-        long long nsong=solve(n-1,goal-1,k,dp)*(n%mod);
+        long long nsong=(solve(n-1,goal-1,k,dp)*n)%mod;
         long long rsong=0;
         if(n>k)
-            rsong=solve(n,goal-1,k,dp)*((n-k)%mod);
+            rsong=(solve(n,goal-1,k,dp)*(n-k))%mod;
         return dp[goal][n]=(nsong+rsong)%mod;
     }
     int numMusicPlaylists(int n, int goal, int k) {
