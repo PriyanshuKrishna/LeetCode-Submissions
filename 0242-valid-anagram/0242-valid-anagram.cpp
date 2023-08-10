@@ -18,3 +18,17 @@ public:
         return true;
     }
 };
+
+/*
+class Solution {
+public:
+    bool isAnagram(string s, string t) {
+        set<char> s1,t1;
+        for(auto it:s)
+            s1.insert(it);
+        for(auto it:t)
+            t1.insert(it);
+        
+        return s1==t1;
+    }
+};*/
