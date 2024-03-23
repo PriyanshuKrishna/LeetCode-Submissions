@@ -10,17 +10,16 @@
  */
 class Solution {
 public:
-    void reorderList(ListNode* head) { 
+    void reorderList(ListNode* head) {
         vector<int> tmp;
         ListNode* h=head;
         while(h){
             tmp.push_back(h->val);
             h=h->next;
         }
-        h=head;
         int n=tmp.size();
-        int j=n-1,i=0;
-        
+        int i=0,j=n-1;
+        h=head;
         while(h){
             if(i==j){
                 h->val=tmp[i];
