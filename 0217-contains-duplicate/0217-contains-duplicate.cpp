@@ -2,10 +2,10 @@ class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {
         set<int> st;
-        for(auto num: nums){
-            if(st.find(num)!=st.end())
+        for(auto it:nums){
+            if(st.find(it)!=st.end())
                 return true;
-            st.insert(num);
+            st.insert(it);
         }
         return false;
     }
