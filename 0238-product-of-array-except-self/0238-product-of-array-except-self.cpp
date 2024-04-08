@@ -17,5 +17,6 @@ public:
             else res[i]=pre[i-1]*post[i+1];
         }
         return res;
+        // Approach 1
     }
 };
